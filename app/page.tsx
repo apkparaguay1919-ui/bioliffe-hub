@@ -40,7 +40,7 @@ export default function Home() {
             {/* VIDEO REAL */}
             <div className="relative rounded-3xl overflow-hidden border border-green-700/50 aspect-video bg-black">
               <video className="w-full h-full object-cover" controls poster="/images/metha.png">
-                <source src="/videos/moringa.mp4" type="video/mp4" />
+                <source src="/videos/producto.mp4" type="video/mp4" />
                 Tu navegador no soporta video.
               </video>
             </div>
