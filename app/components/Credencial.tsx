@@ -1,6 +1,6 @@
 export default function Credencial() {
   return (
-    <section className="w-full bg-[#f7f4ed] py-14 px-6">
+    <section id="liderazgo" className="w-full bg-[#f7f4ed] py-14 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-10">
           <span className="text-[10px] font-bold tracking-[3px] text-[#c9a84c] uppercase">

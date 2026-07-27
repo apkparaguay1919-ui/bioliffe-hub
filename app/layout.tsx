@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import WhatsAppFloat from "./components/WhatsAppFloat";
+import WhatsAppPopup from "./components/WhatsAppPopup";
+import ScrollProgressBar from "./components/effects/ScrollProgressBar";
+import BackToTop from "./components/effects/BackToTop";
 
 export const metadata: Metadata = {
   title: "Bioliffe Moringa Paraguay | Productos Naturales Premium",
@@ -32,7 +38,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body>
+        <ScrollProgressBar />
+        <Navbar />
+        {children}
+        <Footer />
+        <WhatsAppFloat />
+        <WhatsAppPopup />
+        <BackToTop />
+      </body>
     </html>
   );
 }

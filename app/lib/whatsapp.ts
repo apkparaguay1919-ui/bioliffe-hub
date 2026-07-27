@@ -11,4 +11,7 @@ export const WA_MESSAGES = {
   negocio: "Hola Javier, quiero conocer la oportunidad de negocio con Bioliffe Moringa.",
   mentoria: "Hola Javier, quiero recibir mentoría para empezar correctamente.",
   evento: "Hola Javier, quiero registrarme en el próximo evento Bioliffe Moringa.",
+  lideres: "Hola Javier, quiero saber más sobre el liderazgo y la mentoría en Bioliffe Moringa.",
+  academia: "Hola Javier, quiero información sobre la Academia Bioliffe y sus módulos de formación.",
+  blog: "Hola Javier, quiero más información sobre lo que leí en el blog de Bioliffe Moringa.",
 }; 

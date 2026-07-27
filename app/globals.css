@@ -17,3 +17,21 @@ h1, h2, h3 {
   font-weight: 900;
   letter-spacing: -0.02em;
 }
+
+/* Utilidades premium agregadas para las nuevas secciones (cintas, FAQ, filtros) */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #22c55e;
+  color: #050505;
+}

@@ -1,22 +1,37 @@
 import Hero from "./components/Hero";
 import Ticker from "./components/Ticker";
 import ProductCard from "./components/ProductCard";
-import Footer from "./components/Footer";
 import Credencial from "./components/Credencial";
-import WhatsAppFloat from "./components/WhatsAppFloat";
-import Navbar from "./components/Navbar";
 import { products } from "./data/products";
 import { mentorshipModules } from "./data/modules";
 import { events } from "./data/events";
 import { testimonials } from "./data/testimonials";
 import { createWhatsAppLink, WA_MESSAGES } from "./lib/whatsapp";
+import RevealOnScroll from "./components/effects/RevealOnScroll";
+import ProductRibbon from "./components/ribbons/ProductRibbon";
+import TestimonialRibbon from "./components/ribbons/TestimonialRibbon";
+import PhotoRibbon from "./components/ribbons/PhotoRibbon";
+import CorporateVideoSection from "./components/sections/CorporateVideoSection";
+import WhyBioliffe from "./components/sections/WhyBioliffe";
+import Counters from "./components/sections/Counters";
+import FAQAccordion from "./components/sections/FAQAccordion";
+import ComparisonTable from "./components/sections/ComparisonTable";
+import YouTubeChannelGrid from "./components/sections/YouTubeChannelGrid";
+import VideoTestimonials from "./components/sections/VideoTestimonials";
+import { fetchChannelVideos } from "./lib/youtube";
 
-export default function Home() {
+export default async function Home() {
+  // Se sincroniza automáticamente con el canal de YouTube apenas configures
+  // YOUTUBE_API_KEY y YOUTUBE_CHANNEL_ID (ver app/lib/youtube.ts). Si todavía
+  // no están configuradas, esto devuelve null y esa sección no se muestra —
+  // el resto de la web sigue funcionando igual, con el catálogo local.
+  const channelVideos = await fetchChannelVideos(24);
+
   return (
     <main className="text-gray-900 min-h-screen">
-      <Navbar />
       <Hero />
       <Ticker />
+      <ProductRibbon />
 
       {/* MORINGA */}
       <section className="relative py-32 px-6" id="moringa">
@@ -53,6 +68,9 @@ export default function Home() {
         </div>
       </section>
 
+      <CorporateVideoSection />
+      {channelVideos && channelVideos.length > 0 && <YouTubeChannelGrid videos={channelVideos} />}
+
       {/* PRODUCTOS */}
       <section className="relative py-32 px-6" id="productos">
         <div className="absolute inset-0">
@@ -69,6 +87,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <WhyBioliffe />
 
       {/* NEGOCIO */}
       <section className="relative py-32 px-6" id="negocio">
@@ -106,6 +126,8 @@ export default function Home() {
         </div>
       </section>
 
+      <Counters />
+
       {/* MENTORIA */}
       <section className="relative py-32 px-6" id="mentoria">
         <div className="absolute inset-0">
@@ -122,12 +144,14 @@ export default function Home() {
               <div key={mod.id} className="bg-white/90 backdrop-blur border border-white/50 rounded-2xl p-6 hover:bg-white transition-all duration-300">
                 <div className="text-3xl mb-4">{mod.icon}</div>
                 <h3 className="text-gray-900 font-bold text-sm mb-2">{mod.title}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{mod.description}</p>
+                <p className="text-gray-500 text-xs leading-relaxed">{mod.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      <TestimonialRibbon />
 
       {/* TESTIMONIOS */}
       <section className="relative py-32 px-6" id="testimonios">
@@ -146,7 +170,7 @@ export default function Home() {
                   <div className="w-11 h-11 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-black text-sm">{t.name?.charAt(0)}</div>
                   <div>
                     <p className="text-gray-900 font-bold text-sm">{t.name}</p>
-                    <p className="text-gray-500 text-xs">{t.location}</p>
+                    <p className="text-gray-500 text-xs">{t.role}</p>
                   </div>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed italic">"{t.text}"</p>
@@ -155,6 +179,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {channelVideos && channelVideos.length > 0 && <VideoTestimonials videos={channelVideos} />}
+
+      <PhotoRibbon />
 
       {/* EVENTOS */}
       <section className="relative py-32 px-6" id="eventos">
@@ -170,11 +198,13 @@ export default function Home() {
             {events.slice(0,4).map((ev: any) => (
               <div key={ev.id} className="bg-white/90 backdrop-blur border border-white/50 rounded-2xl p-8 hover:bg-white transition-all">
                 <div className="flex items-start gap-5">
-                  <div className="bg-green-100 rounded-2xl p-4 text-3xl">{ev.icon}</div>
+                  <div className="bg-green-100 rounded-2xl p-4 text-3xl">
+                    {ev.type === "Zoom" ? "💻" : ev.type === "Presencial" ? "📍" : "💬"}
+                  </div>
                   <div>
-                    <p className="text-green-600 text-xs font-bold uppercase tracking-widest mb-2">{ev.date}</p>
+                    <p className="text-green-600 text-xs font-bold uppercase tracking-widest mb-2">{ev.date} · {ev.time}</p>
                     <h3 className="text-gray-900 font-bold mb-2">{ev.title}</h3>
-                    <p className="text-gray-500 text-sm">{ev.description}</p>
+                    <p className="text-gray-500 text-sm">{ev.desc}</p>
                   </div>
                 </div>
               </div>
@@ -182,6 +212,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <ComparisonTable />
+      <FAQAccordion />
 
       {/* CTA FINAL */}
       <section className="relative py-32 px-6 text-center">
@@ -207,8 +240,6 @@ export default function Home() {
       </section>
 
       <Credencial />
-      <Footer />
-      <WhatsAppFloat />
     </main>
   );
 }
