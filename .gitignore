@@ -23,3 +23,10 @@ yarn-error.log*
 
 # carpeta donde el escritorio deja los archivos que te paso por el chat
 Claude outputs/
+
+# proyecto de Peru: es otro repo, no debe versionarse aca
+_peru-build/
+
+# cualquier archivo de variables, aunque no empiece con punto
+*env_local*
+*env_example*
