@@ -75,6 +75,8 @@ export default function VideoTestimonials({ videos }: Props) {
                   {v.thumbnail ? (
                     <img
                       src={v.thumbnail}
+                      loading="lazy"
+                      decoding="async"
                       alt={v.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />

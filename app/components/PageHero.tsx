@@ -12,7 +12,7 @@ export default function PageHero({ eyebrow, title, description, image }: Props) 
   return (
     <section className="relative pt-40 pb-24 px-6 overflow-hidden">
       <div className="absolute inset-0">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+        <img src={image} alt="" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/70" />
       </div>
       <div className="relative max-w-4xl mx-auto text-center">

@@ -5,20 +5,20 @@ import { X } from "lucide-react";
 import InfiniteMarquee from "../effects/InfiniteMarquee";
 
 const PHOTOS = [
-  { src: "/images/pexels-allphoto-bangkok-1628521-13612693.jpg", label: "Comunidad" },
-  { src: "/images/pexels-anibal-pabon-253091036-13834221.jpg", label: "Capacitación" },
-  { src: "/images/pexels-ankit-rainloure-1425442-12695823.jpg", label: "Cultivo" },
-  { src: "/images/pexels-beckesbestphotos-2782969.jpg", label: "Testimonios" },
-  { src: "/images/pexels-bernahanim_-1173268160-32664637.jpg", label: "Liderazgo" },
-  { src: "/images/pexels-brett-sayles-1002797.jpg", label: "Producto" },
-  { src: "/images/pexels-chaitaastic-1796727.jpg", label: "Catálogo" },
-  { src: "/images/pexels-ian-panelo-4884823.jpg", label: "Reconocimientos" },
-  { src: "/images/pexels-jahratreza-37911594.jpg", label: "Eventos" },
-  { src: "/images/pexels-jahratreza-37937214.jpg", label: "Moringa" },
-  { src: "/images/pexels-mehul-patel-829985-18697894.jpg", label: "Distribuidores" },
-  { src: "/images/pexels-rabbiislam123-5750575.jpg", label: "Bienestar" },
-  { src: "/images/pexels-tranmautritam-922978.jpg", label: "Comunidad" },
-  { src: "/images/pexels-wanderinglenses-32198643.jpg", label: "Viajes" },
+  { src: "/images/pexels-allphoto-bangkok-1628521-13612693.webp", label: "Comunidad" },
+  { src: "/images/pexels-anibal-pabon-253091036-13834221.webp", label: "Capacitación" },
+  { src: "/images/pexels-ankit-rainloure-1425442-12695823.webp", label: "Cultivo" },
+  { src: "/images/pexels-beckesbestphotos-2782969.webp", label: "Testimonios" },
+  { src: "/images/pexels-bernahanim_-1173268160-32664637.webp", label: "Liderazgo" },
+  { src: "/images/pexels-brett-sayles-1002797.webp", label: "Producto" },
+  { src: "/images/pexels-chaitaastic-1796727.webp", label: "Catálogo" },
+  { src: "/images/pexels-ian-panelo-4884823.webp", label: "Reconocimientos" },
+  { src: "/images/pexels-jahratreza-37911594.webp", label: "Eventos" },
+  { src: "/images/pexels-jahratreza-37937214.webp", label: "Moringa" },
+  { src: "/images/pexels-mehul-patel-829985-18697894.webp", label: "Distribuidores" },
+  { src: "/images/pexels-rabbiislam123-5750575.webp", label: "Bienestar" },
+  { src: "/images/pexels-tranmautritam-922978.webp", label: "Comunidad" },
+  { src: "/images/pexels-wanderinglenses-32198643.webp", label: "Viajes" },
 ];
 
 /** Galería infinita estilo cinta de fotos (productos, eventos, líderes, viajes, cultivos). */
@@ -36,6 +36,8 @@ export default function PhotoRibbon() {
           >
             <img
               src={photo.src}
+                      loading="lazy"
+                      decoding="async"
               alt={photo.label}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />

@@ -20,6 +20,8 @@ export default function VideoCard({ video, onPlay, size = "md" }: Props) {
       <div className="relative aspect-video overflow-hidden">
         <img
           src={video.thumbnail}
+                      loading="lazy"
+                      decoding="async"
           alt={video.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />

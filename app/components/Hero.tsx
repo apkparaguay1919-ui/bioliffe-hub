@@ -1,8 +1,8 @@
 "use client";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { createWhatsAppLink, WA_MESSAGES } from "../lib/whatsapp";
 import AnimatedCounter from "./effects/AnimatedCounter";
+import LeadCTA from "./forms/LeadCTA";
 
 /**
  * Hero cinematográfico. Mantiene el texto, los enlaces, los 3 botones y las
@@ -19,28 +19,64 @@ export default function Hero() {
 
   const particles = Array.from({ length: 18 });
 
+  /**
+   * El video de fondo solo se carga en pantallas grandes y si la persona no
+   * pidió reducir el movimiento.
+   *
+   * En celular el video de fondo no aporta nada (queda tapado por el texto y
+   * la capa oscura) y en cambio se lleva megas de datos móviles. Al arrancar
+   * en false, el navegador nunca llega a pedir el archivo en un teléfono.
+   */
+  const [mostrarVideo, setMostrarVideo] = useState(false);
+
+  useEffect(() => {
+    const grande = window.matchMedia("(min-width: 768px)");
+    const menosMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const evaluar = () => setMostrarVideo(grande.matches && !menosMovimiento.matches);
+
+    evaluar();
+    grande.addEventListener("change", evaluar);
+    menosMovimiento.addEventListener("change", evaluar);
+    return () => {
+      grande.removeEventListener("change", evaluar);
+      menosMovimiento.removeEventListener("change", evaluar);
+    };
+  }, []);
+
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
       {/* Fondo: imagen con parallax + video opcional que se desvanece encima */}
       <motion.div className="absolute inset-0" style={{ y: imageY }}>
+        {/* Imagen principal del Hero: es el LCP de la home, por eso carga
+            con prioridad en vez de en diferido. */}
         <img
-          src="/images/pexels-brett-sayles-1002797.jpg"
-          alt="hero"
+          src="/images/pexels-brett-sayles-1002797.webp"
+          alt=""
+          width={1920}
+          height={1280}
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover scale-110"
         />
-        <motion.video
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/images/pexels-brett-sayles-1002797.jpg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.55 }}
-          transition={{ duration: 2, delay: 0.6 }}
-        >
-          <source src="/videos/producto.mp4" type="video/mp4" />
-        </motion.video>
+        {mostrarVideo && (
+          <motion.video
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            poster="/images/pexels-brett-sayles-1002797.webp"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.55 }}
+            transition={{ duration: 2, delay: 0.6 }}
+          >
+            {/* Versión liviana: 24 s en bucle, sin audio, 540p (1,8 MB en
+                lugar de los 75 MB del original). */}
+            <source src="/videos/producto-loop.mp4" type="video/mp4" />
+          </motion.video>
+        )}
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/40" />
       </motion.div>
@@ -104,24 +140,23 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
         >
-          <a
-            href={createWhatsAppLink(WA_MESSAGES.general)}
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Botón 1 — abre el formulario de captación en un modal.
+              Antes iba directo a wa.me con un "Hola" en frío, sin datos. */}
+          <LeadCTA
+            label="Quiero informacion ahora"
+            origen="/"
             className="group relative bg-green-500 hover:bg-green-400 text-white font-black px-10 py-4 rounded-xl text-base tracking-widest uppercase transition-all shadow-[0_0_0_0_rgba(34,197,94,0.6)] hover:shadow-[0_0_35px_5px_rgba(34,197,94,0.45)]"
-          >
-            Quiero informacion ahora
-          </a>
+          />
+          {/* Botón 2 — catálogo real con ficha por producto. */}
           <a
-            href="/#productos"
+            href="/productos"
             className="border border-white/30 text-white hover:bg-white/10 hover:border-white/60 font-bold px-10 py-4 rounded-xl text-base tracking-widest uppercase transition-all"
           >
             Ver productos
           </a>
+          {/* Botón 3 — landing de conversión del negocio. */}
           <a
-            href={createWhatsAppLink(WA_MESSAGES.negocio)}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/emprender"
             className="border border-white/30 text-white hover:bg-white/10 hover:border-white/60 font-bold px-10 py-4 rounded-xl text-base tracking-widest uppercase transition-all"
           >
             Quiero emprender

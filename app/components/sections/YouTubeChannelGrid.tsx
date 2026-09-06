@@ -123,7 +123,7 @@ export default function YouTubeChannelGrid({ videos }: Props) {
             >
               <div className={`relative overflow-hidden ${v.isShort ? "aspect-[9/16]" : "aspect-video"}`}>
                 {v.thumbnail ? (
-                  <img src={v.thumbnail} alt={v.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img src={v.thumbnail} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-white/5 text-white/20">
                     <Youtube size={28} />

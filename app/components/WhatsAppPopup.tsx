@@ -61,7 +61,7 @@ export default function WhatsAppPopup() {
               <MessageCircle size={16} /> Hablar por WhatsApp
             </a>
             <a
-              href="#productos"
+              href="/productos"
               onClick={close}
               className="flex items-center justify-center gap-2 border border-white/15 text-white hover:bg-white/10 font-bold text-sm py-3 rounded-xl transition-colors"
             >

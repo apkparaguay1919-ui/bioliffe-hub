@@ -3,14 +3,15 @@ import PageHero from "../components/PageHero";
 import RevealOnScroll from "../components/effects/RevealOnScroll";
 import GsapHeading from "../components/effects/GsapHeading";
 import { leadershipPillars, mentorshipModules } from "../data/modules";
+import EquipoLideres from "../components/sections/EquipoLideres";
 import { createWhatsAppLink, WA_MESSAGES } from "../lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Líderes | Bioliffe Moringa Paraguay",
+  title: "Líderes",
   description:
     "Conocé al liderazgo de Bioliffe Moringa Paraguay y el sistema de mentoría que forma nuevos líderes cada mes.",
   openGraph: {
-    title: "Líderes | Bioliffe Moringa Paraguay",
+    title: "Líderes",
     description: "El liderazgo y el sistema de mentoría de Bioliffe Moringa Paraguay.",
     url: "https://www.biolifemoringaparaguay.com/lideres",
   },
@@ -23,7 +24,7 @@ export default function LideresPage() {
         eyebrow="Liderazgo Bioliffe"
         title="Líderes que forman líderes"
         description="Un sistema de mentoría real, pensado para acompañar a cada distribuidor desde el primer paso hasta la construcción de su propio equipo."
-        image="/images/pexels-brett-sayles-1002797.jpg"
+        image="/images/pexels-brett-sayles-1002797.webp"
       />
 
       {/* LIDER PRINCIPAL */}
@@ -80,6 +81,9 @@ export default function LideresPage() {
           </RevealOnScroll>
         </div>
       </section>
+
+      {/* EQUIPO — se edita en app/data/lideres.ts */}
+      <EquipoLideres />
 
       {/* PILARES DE LIDERAZGO */}
       <section className="relative py-24 px-6 bg-white/[0.02] border-y border-white/5">

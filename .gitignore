@@ -20,3 +20,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# carpeta donde el escritorio deja los archivos que te paso por el chat
+Claude outputs/

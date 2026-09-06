@@ -18,6 +18,7 @@ import FAQAccordion from "./components/sections/FAQAccordion";
 import ComparisonTable from "./components/sections/ComparisonTable";
 import YouTubeChannelGrid from "./components/sections/YouTubeChannelGrid";
 import VideoTestimonials from "./components/sections/VideoTestimonials";
+import InfoSection from "./components/sections/InfoSection";
 import { fetchChannelVideos } from "./lib/youtube";
 
 export default async function Home() {
@@ -33,10 +34,13 @@ export default async function Home() {
       <Ticker />
       <ProductRibbon />
 
+      {/* Aterrizaje del botón "Quiero información ahora" del Hero */}
+      <InfoSection />
+
       {/* MORINGA */}
       <section className="relative py-32 px-6" id="moringa">
         <div className="absolute inset-0">
-          <img src="/images/pexels-jahratreza-37937214.jpg" alt="moringa" className="w-full h-full object-cover" />
+          <img src="/images/pexels-jahratreza-37937214.webp" alt="moringa" loading="lazy" decoding="async" className="w-full h-full object-cover" />
         </div>
         <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
           <div className="bg-white/90 backdrop-blur rounded-3xl p-10 shadow-xl">
@@ -61,8 +65,15 @@ export default async function Home() {
             </a>
           </div>
           <div className="rounded-3xl overflow-hidden shadow-2xl aspect-video">
-            <video className="w-full h-full object-cover" controls poster="/images/eficlax.jpeg">
-              <source src="/videos/producto.mp4" type="video/mp4" />
+            {/* preload="none": el video (19 MB) no se descarga hasta que
+                alguien toca play. Antes se precargaba siempre, en cada visita. */}
+            <video
+              className="w-full h-full object-cover"
+              controls
+              preload="none"
+              poster="/images/producto-poster.webp"
+            >
+              <source src="/videos/producto-web.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -74,7 +85,7 @@ export default async function Home() {
       {/* PRODUCTOS */}
       <section className="relative py-32 px-6" id="productos">
         <div className="absolute inset-0">
-          <img src="/images/pexels-chaitaastic-1796727.jpg" alt="bg" className="w-full h-full object-cover" />
+          <img src="/images/pexels-chaitaastic-1796727.webp" alt="bg" loading="lazy" decoding="async" className="w-full h-full object-cover" />
         </div>
         <div className="relative max-w-6xl mx-auto">
           <div className="text-center mb-20 bg-black/40 backdrop-blur rounded-3xl py-10 px-6">
@@ -85,6 +96,14 @@ export default async function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {products.map((product) => (<ProductCard key={product.id} product={product} />))}
           </div>
+          <div className="text-center mt-14">
+            <a
+              href="/productos"
+              className="inline-flex bg-white/95 hover:bg-white text-gray-900 font-bold py-4 px-10 rounded-xl transition-all"
+            >
+              Ver catalogo completo
+            </a>
+          </div>
         </div>
       </section>
 
@@ -93,7 +112,7 @@ export default async function Home() {
       {/* NEGOCIO */}
       <section className="relative py-32 px-6" id="negocio">
         <div className="absolute inset-0">
-          <img src="/images/pexels-allphoto-bangkok-1628521-13612693.jpg" alt="bg" className="w-full h-full object-cover" />
+          <img src="/images/pexels-allphoto-bangkok-1628521-13612693.webp" alt="bg" loading="lazy" decoding="async" className="w-full h-full object-cover" />
         </div>
         <div className="relative max-w-6xl mx-auto">
           <div className="text-center mb-20 bg-white/90 backdrop-blur rounded-3xl py-10 px-6">
@@ -131,7 +150,7 @@ export default async function Home() {
       {/* MENTORIA */}
       <section className="relative py-32 px-6" id="mentoria">
         <div className="absolute inset-0">
-          <img src="/images/pexels-bernahanim_-1173268160-32664637.jpg" alt="bg" className="w-full h-full object-cover" />
+          <img src="/images/pexels-bernahanim_-1173268160-32664637.webp" alt="bg" loading="lazy" decoding="async" className="w-full h-full object-cover" />
         </div>
         <div className="relative max-w-6xl mx-auto">
           <div className="text-center mb-20 bg-black/40 backdrop-blur rounded-3xl py-10 px-6">
@@ -156,7 +175,7 @@ export default async function Home() {
       {/* TESTIMONIOS */}
       <section className="relative py-32 px-6" id="testimonios">
         <div className="absolute inset-0">
-          <img src="/images/pexels-beckesbestphotos-2782969.jpg" alt="bg" className="w-full h-full object-cover" />
+          <img src="/images/pexels-beckesbestphotos-2782969.webp" alt="bg" loading="lazy" decoding="async" className="w-full h-full object-cover" />
         </div>
         <div className="relative max-w-6xl mx-auto">
           <div className="text-center mb-20 bg-white/90 backdrop-blur rounded-3xl py-10 px-6">
@@ -187,7 +206,7 @@ export default async function Home() {
       {/* EVENTOS */}
       <section className="relative py-32 px-6" id="eventos">
         <div className="absolute inset-0">
-          <img src="/images/pexels-jahratreza-37911594.jpg" alt="bg" className="w-full h-full object-cover" />
+          <img src="/images/pexels-jahratreza-37911594.webp" alt="bg" loading="lazy" decoding="async" className="w-full h-full object-cover" />
         </div>
         <div className="relative max-w-6xl mx-auto">
           <div className="text-center mb-20 bg-black/40 backdrop-blur rounded-3xl py-10 px-6">
@@ -219,7 +238,7 @@ export default async function Home() {
       {/* CTA FINAL */}
       <section className="relative py-32 px-6 text-center">
         <div className="absolute inset-0">
-          <img src="/images/pexels-tranmautritam-922978.jpg" alt="bg" className="w-full h-full object-cover" />
+          <img src="/images/pexels-tranmautritam-922978.webp" alt="bg" loading="lazy" decoding="async" className="w-full h-full object-cover" />
         </div>
         <div className="relative max-w-3xl mx-auto bg-green-700/85 backdrop-blur rounded-3xl py-14 px-8">
           <p className="text-green-200 text-xs font-bold tracking-widest uppercase mb-6">Unete ahora</p>

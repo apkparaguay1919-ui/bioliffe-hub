@@ -4,22 +4,42 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { createWhatsAppLink, WA_MESSAGES } from "../lib/whatsapp";
 
+/**
+ * Menú principal.
+ *
+ * Cambios: "Productos" y "Negocio" ahora van a páginas reales (/productos y
+ * /emprender) en lugar de anclas de la home; "Videos" y "Testimonios" tienen
+ * su propia página; y se quitó "Liderazgo" porque apuntaba a /#liderazgo,
+ * un ancla que no existe en ninguna sección (era un enlace roto).
+ * Todos los destinos siguen accesibles, además, desde el footer.
+ */
+/** Lista completa — es la que se ve en el menú desplegable del celular. */
 const LINKS: [string, string][] = [
   ["Nosotros", "/nosotros"],
   ["La Moringa", "/moringa"],
-  ["Productos", "/#productos"],
-  ["Negocio", "/#negocio"],
-  ["Mentoria", "/#mentoria"],
+  ["Productos", "/productos"],
+  ["Emprender", "/emprender"],
   ["Academia", "/academia"],
-  ["Liderazgo", "/#liderazgo"],
+  ["Videos", "/videos"],
   ["Lideres", "/lideres"],
+  ["Testimonios", "/testimonios"],
   ["Eventos", "/#eventos"],
-  ["Videos", "/#video"],
-  ["Testimonios", "/#testimonios"],
   ["Blog", "/blog"],
   ["Recursos", "/descargas"],
-  ["Preguntas Frecuentes", "/#faq"],
+  ["Preguntas", "/#faq"],
 ];
+
+/**
+ * Barra horizontal de escritorio: 10 enlaces.
+ *
+ * Con los 12 la barra se pasaba del ancho de la pantalla y el último quedaba
+ * cortado contra el borde derecho, incluso en un monitor de 1440 px. "Eventos"
+ * y "Recursos" salen de acá pero siguen estando en el menú del celular y en el
+ * footer, así que no se pierde ningún acceso.
+ */
+const LINKS_ESCRITORIO = LINKS.filter(
+  ([, href]) => href !== "/#eventos" && href !== "/descargas"
+);
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -48,8 +68,8 @@ export default function Navbar() {
           </span>
         </a>
 
-        <div className="hidden lg:flex items-center gap-8">
-          {LINKS.map(([label, href]) => (
+        <div className="hidden xl:flex items-center gap-4 2xl:gap-6">
+          {LINKS_ESCRITORIO.map(([label, href]) => (
             <a
               key={href}
               href={href}
@@ -73,7 +93,7 @@ export default function Navbar() {
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label="Menú"
-            className="lg:hidden w-10 h-10 rounded-lg border border-white/15 text-white flex items-center justify-center"
+            className="xl:hidden w-10 h-10 rounded-lg border border-white/15 text-white flex items-center justify-center"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -87,7 +107,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden overflow-hidden bg-black border-t border-white/10"
+            className="xl:hidden overflow-hidden bg-black border-t border-white/10"
           >
             <div className="px-6 py-6 flex flex-col gap-1">
               {LINKS.map(([label, href]) => (

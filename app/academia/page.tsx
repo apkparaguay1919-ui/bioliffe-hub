@@ -4,14 +4,16 @@ import RevealOnScroll from "../components/effects/RevealOnScroll";
 import GsapHeading from "../components/effects/GsapHeading";
 import AnimatedCounter from "../components/effects/AnimatedCounter";
 import { mentorshipModules } from "../data/modules";
+import CursosGrid from "../components/sections/CursosGrid";
+import { cursosDisponibles } from "../data/academia";
 import { createWhatsAppLink, WA_MESSAGES } from "../lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Academia Bioliffe | Bioliffe Moringa Paraguay",
+  title: "Academia Bioliffe",
   description:
     "Academia Bioliffe: módulos de formación en mentalidad, ventas, seguimiento y liderazgo para distribuidores de Bioliffe Moringa Paraguay.",
   openGraph: {
-    title: "Academia Bioliffe | Bioliffe Moringa Paraguay",
+    title: "Academia Bioliffe",
     description: "Módulos de formación para distribuidores Bioliffe Moringa Paraguay.",
     url: "https://www.biolifemoringaparaguay.com/academia",
   },
@@ -36,10 +38,10 @@ const TRACKS = [
 ];
 
 const STATS = [
+  { value: cursosDisponibles.length, suffix: "", label: "Cursos" },
   { value: mentorshipModules.length, suffix: "", label: "Módulos" },
   { value: 24, suffix: "/7", label: "Mentoría" },
   { value: 100, suffix: "%", label: "Práctico" },
-  { value: 1, suffix: "er día", label: "Acceso desde" },
 ];
 
 export default function AcademiaPage() {
@@ -49,7 +51,7 @@ export default function AcademiaPage() {
         eyebrow="Academia Bioliffe"
         title="Formación real para crecer"
         description="Módulos prácticos, pensados por y para distribuidores, con acompañamiento constante de tu mentor."
-        image="/images/pexels-chaitaastic-1796727.jpg"
+        image="/images/pexels-chaitaastic-1796727.webp"
       />
 
       {/* STATS */}
@@ -63,6 +65,9 @@ export default function AcademiaPage() {
           ))}
         </div>
       </section>
+
+      {/* CURSOS — se editan en app/data/academia.ts */}
+      <CursosGrid />
 
       {/* TRACKS */}
       {TRACKS.map((track, ti) => (

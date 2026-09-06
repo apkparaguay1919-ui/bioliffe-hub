@@ -44,7 +44,7 @@ export default function CorporateVideoSection() {
               onClick={() => setPlaying(main)}
               className="group relative lg:col-span-3 aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
             >
-              <img src={main.thumbnail} alt={main.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src={main.thumbnail} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
               <span className="absolute inset-0 flex items-center justify-center">
                 <span className="w-20 h-20 rounded-full bg-green-500 group-hover:bg-green-400 text-white flex items-center justify-center shadow-2xl transition-all group-hover:scale-110">

@@ -69,6 +69,8 @@ export default function BlogGrid({ posts }: Props) {
                   <div className="relative h-44 overflow-hidden">
                     <img
                       src={post.cover}
+                      loading="lazy"
+                      decoding="async"
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

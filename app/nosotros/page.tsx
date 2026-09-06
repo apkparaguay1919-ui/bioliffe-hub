@@ -5,11 +5,11 @@ import GsapHeading from "../components/effects/GsapHeading";
 import { createWhatsAppLink, WA_MESSAGES } from "../lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Nosotros | Bioliffe Moringa Paraguay",
+  title: "Nosotros",
   description:
     "Conocé la historia, misión, visión y valores de Bioliffe Moringa Paraguay: bienestar, liderazgo y oportunidad de negocio.",
   openGraph: {
-    title: "Nosotros | Bioliffe Moringa Paraguay",
+    title: "Nosotros",
     description: "Historia, misión, visión y valores de Bioliffe Moringa Paraguay.",
     url: "https://www.biolifemoringaparaguay.com/nosotros",
   },
@@ -54,7 +54,7 @@ export default function NosotrosPage() {
         eyebrow="Bioliffe Moringa Paraguay"
         title="Nuestra historia"
         description="Bienestar, liderazgo y oportunidad — la misión detrás de cada producto y cada mentoría."
-        image="/images/pexels-allphoto-bangkok-1628521-13927802.jpg"
+        image="/images/pexels-allphoto-bangkok-1628521-13927802.webp"
       />
 
       {/* HISTORIA */}

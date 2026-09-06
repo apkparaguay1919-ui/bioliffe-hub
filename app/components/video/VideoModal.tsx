@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, MessageCircle, Youtube } from "lucide-react";
 import type { VideoEntry } from "../../data/videos";
 import { YOUTUBE_CHANNEL_SEARCH_URL } from "../../data/videos";
-import { createWhatsAppLink, WA_MESSAGES } from "../../lib/whatsapp";
+import { videoWhatsAppLink } from "../../lib/whatsapp";
 
 interface Props {
   video: VideoEntry | null;
@@ -44,7 +44,7 @@ export default function VideoModal({ video, onClose }: Props) {
               {video.youtubeId ? (
                 <iframe
                   className="w-full h-full"
-                  src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0`}
+                  src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
                   title={video.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -73,7 +73,7 @@ export default function VideoModal({ video, onClose }: Props) {
               </div>
               <div className="flex gap-3 shrink-0">
                 <a
-                  href={createWhatsAppLink(WA_MESSAGES.general)}
+                  href={videoWhatsAppLink(video.title)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold text-xs px-4 py-2.5 rounded-lg transition-colors whitespace-nowrap"

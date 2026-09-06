@@ -1,0 +1,9 @@
+# Copia este archivo como ".env.local" (sin ".example") en la raíz del proyecto
+# y completa los dos valores para conectar automáticamente el canal de YouTube.
+# Después de crearlo, reiniciá "npm run dev" para que tome los cambios.
+
+YOUTUBE_API_KEY=
+YOUTUBE_CHANNEL_ID=
+
+# Recordá agregar estas mismas dos variables en Vercel:
+# Project Settings -> Environment Variables -> agregar ambas -> Redeploy.

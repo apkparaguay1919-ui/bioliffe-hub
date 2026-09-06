@@ -5,11 +5,11 @@ import GsapHeading from "../components/effects/GsapHeading";
 import { createWhatsAppLink, WA_MESSAGES } from "../lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "La Moringa | Bioliffe Moringa Paraguay",
+  title: "La Moringa",
   description:
     "Historia, origen, cultivo y nutrientes generales de la moringa (Moringa oleifera). Información educativa general, sin afirmaciones médicas.",
   openGraph: {
-    title: "La Moringa | Bioliffe Moringa Paraguay",
+    title: "La Moringa",
     description: "Historia, origen, cultivo y nutrientes generales de la moringa.",
     url: "https://www.biolifemoringaparaguay.com/moringa",
   },
@@ -29,7 +29,7 @@ export default function MoringaPage() {
         eyebrow="Beneficios de la Moringa"
         title="El árbol de la vida"
         description="Historia, origen, cultivo y nutrientes generales de una de las plantas más estudiadas del mundo."
-        image="/images/pexels-jahratreza-37937214.jpg"
+        image="/images/pexels-jahratreza-37937214.webp"
       />
 
       <section className="relative py-24 px-6">

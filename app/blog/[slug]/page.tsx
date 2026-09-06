@@ -18,10 +18,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post) return { title: "Artículo no encontrado | Bioliffe Moringa Paraguay" };
+  if (!post) return { title: "Artículo no encontrado" };
 
   return {
-    title: `${post.title} | Blog Bioliffe Moringa Paraguay`,
+    title: post.title,
     description: post.excerpt,
     openGraph: {
       title: post.title,
@@ -50,7 +50,7 @@ export default async function BlogPostPage({ params }: Props) {
     <main className="text-gray-900 min-h-screen bg-[#050505]">
       <section className="relative pt-40 pb-16 px-6 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={post.cover} alt={post.title} className="w-full h-full object-cover" />
+          <img src={post.cover} alt="" fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/70" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
@@ -129,6 +129,8 @@ export default async function BlogPostPage({ params }: Props) {
                     <div className="relative h-36 overflow-hidden">
                       <img
                         src={r.cover}
+                      loading="lazy"
+                      decoding="async"
                         alt={r.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />

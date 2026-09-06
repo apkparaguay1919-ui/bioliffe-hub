@@ -16,6 +16,8 @@ export default function ProductRibbon() {
             <div className="aspect-square bg-white/5 flex items-center justify-center overflow-hidden">
               <img
                 src={product.image}
+                      loading="lazy"
+                      decoding="async"
                 alt={product.name}
                 className="w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-110"
               />

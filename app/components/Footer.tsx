@@ -25,26 +25,26 @@ const FOOTER_COLUMNS: { title: string; links: { label: string; href: string; soo
   {
     title: "Productos",
     links: [
-      { label: "Catálogo completo", href: "/#productos" },
-      { label: "Cómo comprar", href: "/#productos" },
+      { label: "Catálogo completo", href: "/productos" },
+      { label: "Eficlax Detox", href: "/productos/eficlax-detox" },
+      { label: "ALKA-M", href: "/productos/alka-m" },
       { label: "Preguntas de producto", href: "/#faq" },
     ],
   },
   {
     title: "Negocio",
     links: [
-      { label: "Oportunidad de negocio", href: "/#negocio" },
+      { label: "Oportunidad de negocio", href: "/emprender" },
       { label: "Mentoría", href: "/#mentoria" },
       { label: "Academia Bioliffe", href: "/academia" },
-      { label: "Liderazgo", href: "/#liderazgo" },
       { label: "Líderes", href: "/lideres" },
     ],
   },
   {
     title: "Contenido",
     links: [
-      { label: "Videos", href: "/#video" },
-      { label: "Testimonios", href: "/#testimonios" },
+      { label: "Videos", href: "/videos" },
+      { label: "Testimonios", href: "/testimonios" },
       { label: "Eventos", href: "/#eventos" },
       { label: "Blog", href: "/blog" },
       { label: "Preguntas Frecuentes", href: "/#faq" },
@@ -109,7 +109,8 @@ export default function Footer() {
               WhatsApp
             </a>
             <ul className="space-y-2 text-sm mt-4">
-              <li><a href="/#negocio" className="hover:text-yellow-400">Distribuidores</a></li>
+              <li><a href="/contacto" className="hover:text-yellow-400">Formulario de contacto</a></li>
+              <li><a href="/emprender" className="hover:text-yellow-400">Distribuidores</a></li>
               <li><a href="/#faq" className="hover:text-yellow-400">Soporte</a></li>
             </ul>
           </div>
@@ -120,8 +121,8 @@ export default function Footer() {
             Producto de bienestar. No sustituye diagnostico ni tratamiento medico. Resultados pueden variar. 2026 Bioliffe Moringa Paraguay.
           </p>
           <div className="flex gap-5 text-green-700 text-xs">
-            <a href="/#faq" className="hover:text-yellow-400">Políticas de privacidad</a>
-            <a href="/#faq" className="hover:text-yellow-400">Términos de uso</a>
+            <a href="/privacidad" className="hover:text-yellow-400">Políticas de privacidad</a>
+            <a href="/terminos" className="hover:text-yellow-400">Términos de uso</a>
           </div>
         </div>
       </div>

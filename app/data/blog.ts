@@ -36,7 +36,7 @@ export const blogPosts: BlogPost[] = [
     category: "Moringa",
     excerpt:
       "Un recorrido general por el origen, la historia y los usos tradicionales de la Moringa oleifera, el árbol detrás de nuestros productos.",
-    cover: "/images/pexels-jahratreza-37937214.jpg",
+    cover: "/images/pexels-jahratreza-37937214.webp",
     readTime: "4 min",
     publishedAt: "2026-01-12",
     tags: ["moringa", "origen", "historia"],
@@ -53,7 +53,7 @@ export const blogPosts: BlogPost[] = [
     category: "Nutrición",
     excerpt:
       "Vitaminas, minerales y proteína vegetal: qué dice la información nutricional general sobre las hojas de moringa.",
-    cover: "/images/pexels-tranmautritam-922978.jpg",
+    cover: "/images/pexels-tranmautritam-922978.webp",
     readTime: "3 min",
     publishedAt: "2026-01-20",
     tags: ["nutrición", "moringa", "vitaminas"],
@@ -70,7 +70,7 @@ export const blogPosts: BlogPost[] = [
     category: "Negocio",
     excerpt:
       "No hace falta experiencia previa en ventas para arrancar: contamos qué pasos sigue un nuevo distribuidor dentro del sistema Bioliffe.",
-    cover: "/images/pexels-ankit-rainloure-1425442-12695823.jpg",
+    cover: "/images/pexels-ankit-rainloure-1425442-12695823.webp",
     readTime: "5 min",
     publishedAt: "2026-02-02",
     tags: ["negocio", "emprendimiento", "primeros pasos"],
@@ -87,7 +87,7 @@ export const blogPosts: BlogPost[] = [
     category: "Liderazgo",
     excerpt:
       "Visión, disciplina, servicio y duplicación: los pilares que sostienen al liderazgo dentro de la comunidad Bioliffe.",
-    cover: "/images/pexels-brett-sayles-1002797.jpg",
+    cover: "/images/pexels-brett-sayles-1002797.webp",
     readTime: "4 min",
     publishedAt: "2026-02-14",
     tags: ["liderazgo", "mentoría", "equipo"],
@@ -104,7 +104,7 @@ export const blogPosts: BlogPost[] = [
     category: "Salud",
     excerpt:
       "Pequeños hábitos diarios —hidratación, descanso, alimentación balanceada— que acompañan cualquier rutina de bienestar.",
-    cover: "/images/pexels-beckesbestphotos-2782969.jpg",
+    cover: "/images/pexels-beckesbestphotos-2782969.webp",
     readTime: "3 min",
     publishedAt: "2026-02-25",
     tags: ["bienestar", "hábitos", "rutina"],
@@ -121,7 +121,7 @@ export const blogPosts: BlogPost[] = [
     category: "Belleza",
     excerpt:
       "Una mirada general a los ingredientes naturales más buscados hoy para el cuidado de piel y cabello.",
-    cover: "/images/pexels-wanderinglenses-32198643.jpg",
+    cover: "/images/pexels-wanderinglenses-32198643.webp",
     readTime: "3 min",
     publishedAt: "2026-03-05",
     tags: ["belleza", "cuidado natural", "rutina"],
@@ -138,7 +138,7 @@ export const blogPosts: BlogPost[] = [
     category: "Testimonios",
     excerpt:
       "Un repaso por lo que comparten distribuidoras y distribuidores activos de Bioliffe Moringa Paraguay en su día a día.",
-    cover: "/images/pexels-bernahanim_-1173268160-32664637.jpg",
+    cover: "/images/pexels-bernahanim_-1173268160-32664637.webp",
     readTime: "3 min",
     publishedAt: "2026-03-15",
     tags: ["comunidad", "testimonios", "experiencias"],
@@ -155,7 +155,7 @@ export const blogPosts: BlogPost[] = [
     category: "Negocio",
     excerpt:
       "Qué significa realmente tener mentoría activa 24/7 y cómo se traduce en el día a día de un nuevo distribuidor.",
-    cover: "/images/pexels-ian-panelo-4884823.jpg",
+    cover: "/images/pexels-ian-panelo-4884823.webp",
     readTime: "4 min",
     publishedAt: "2026-03-28",
     tags: ["mentoría", "negocio", "acompañamiento"],
@@ -172,7 +172,7 @@ export const blogPosts: BlogPost[] = [
     category: "Nutrición",
     excerpt:
       "Formas tradicionales y actuales en las que distintas culturas incorporan la moringa a su alimentación diaria.",
-    cover: "/images/pexels-chaitaastic-1796727.jpg",
+    cover: "/images/pexels-chaitaastic-1796727.webp",
     readTime: "3 min",
     publishedAt: "2026-04-08",
     tags: ["moringa", "alimentación", "nutrición"],
